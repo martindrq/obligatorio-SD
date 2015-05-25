@@ -1,0 +1,28 @@
+{
+  "name": "obligatorio-sd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martindrq/obligatorio-SD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martindrq/obligatorio-SD/issues"
+  },
+  "homepage": "https://github.com/martindrq/obligatorio-SD#readme",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "dbox": "^0.6.4",
+    "dropbox": "^0.10.3",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "mongoose": "^4.0.3",
+    "multer": "^0.1.8"
+  }
+}
