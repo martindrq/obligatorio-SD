@@ -21,8 +21,5 @@
     "express": "^4.12.4",
     "mongoose": "^4.0.3",
     "multer": "^0.1.8"
-  },
-  "scripts": {
-    "start": "node app.js"
   }
 }
