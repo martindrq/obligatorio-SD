@@ -1,0 +1,65 @@
+ <% include header %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h3>Obligatorio SD</h3>
+		<div class="alert alert-info" role="alert">El archivo <%= file.name %> ya existe, desea reescribirlo? </div>
+		<form name="sendFile" action="/rewrite" method="POST" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="file">Archivo</label>
+				<%= file.name %>
+			</div>
+			<div class="form-group">
+				<label for="tags">Tags</label>
+				<input type="text" id="tags" name="tags" value="<%= file.tags.join(',') %>" class="form-control" data-role="tagsinput" required>
+			</div>
+			<strong>Compartir con grupos que pertenezco</strong>
+			<div class="form-group">
+				<select type="text" name="groups" class="form-control" multiple required>
+					<% user.groups.forEach(function(group) { %>
+				  		<option value="<%= group %>" <%= file.groups.indexOf(group) !== -1 ? 'selected' : '' %>><%= group %></option>
+				    <% }); %>  
+				</select>
+			</div>
+			<div class="form-group">
+				<div class="checkbox">
+				    <label>
+				      <input name="groupCanWrite" type="checkbox" <%= file.groupCanWrite === true ? 'checked' : '' %>> Puede escribirse
+				    </label>
+				</div>
+				<div class="checkbox">
+				    <label>
+				      <input name="groupCanRead" type="checkbox" <%= file.groupCanRead === true ? 'checked' : '' %>> Puede leerse
+				    </label>
+				</div>
+			</div>
+			<strong>Yo mismo</strong>
+			<div class="form-group">
+				<div class="checkbox">
+				    <label>
+				      <input name="ownerCanWrite" type="checkbox" <%= file.ownerCanWrite ? 'checked' : '' %>> Puede escribirse
+				    </label>
+				</div>
+				<div class="checkbox">
+				    <label>
+				      <input name="ownerCanRead" type="checkbox" <%= file.ownerCanRead ? 'checked' : '' %>> Puede leerse
+				    </label>
+				</div>
+			</div> 
+			<strong>Publico</strong>
+			<div class="form-group">
+				<div class="checkbox">
+				    <label>
+				      <input name="publicCanWrite" type="checkbox" <%= file.publicCanWrite ? 'checked' : '' %>> Puede escribirse
+				    </label>
+				</div>
+				<div class="checkbox">
+				    <label>
+				      <input name="publicCanRead" type="checkbox" <%= file.publicCanRead ? 'checked' : '' %>> Puede leerse
+				    </label>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-default">Reescribir arhivo</button>
+		</form>
+	</div>
+</div>
+<% include footer %>
