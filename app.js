@@ -88,7 +88,7 @@ app.post('/uploadFile', function (req, res) {
 
   File.findOne({name: userFile.originalname}, function(status, resp){
     //Archivo existe
-    if(resp.length !== 0){
+    if(resp && resp.length !== 0){
         if(hasPermission(req.session.user,resp,'write')){
           req.session.fileToConfirm = resp.name;
           req.session.fileToConfirmContent = userFile.buffer;
